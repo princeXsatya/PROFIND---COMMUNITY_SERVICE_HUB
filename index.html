@@ -24,6 +24,40 @@
                     <li class="nav-item">
                         <a class="nav-link contact-link" href="#" data-i18n="contact">Contact</a>
                     </li>
-                </ul>    
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                            data-bs-toggle="dropdown" data-i18n="language">
+                            <img src="https://flagcdn.com/w20/gb.png" class="language-flag" alt="English"> English
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item language-select" href="#" data-lang="en">
+                                <img src="https://flagcdn.com/w20/gb.png" class="language-flag" alt="English"> English
+                            </a></li>
+                            <li><a class="dropdown-item language-select" href="#" data-lang="hi">
+                                <img src="https://flagcdn.com/w20/in.png" class="language-flag" alt="Hindi"> हिन्दी
+                            </a></li>
+                            <li><a class="dropdown-item language-select" href="#" data-lang="bn">
+                                <img src="https://flagcdn.com/w20/bd.png" class="language-flag" alt="Bengali"> বাংলা
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> <span data-i18n="profile">Profile</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item my-profile-link" href="#" data-i18n="my_profile">My Profile</a></li>
+                            <li><a class="dropdown-item bookings-link" href="#" data-i18n="bookings">Bookings</a></li>
+                            <li><a class="dropdown-item booking-history-link" href="#" data-i18n="booking_history">Booking History</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item logout-link" href="#" data-i18n="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </body>
 </html>
