@@ -1006,6 +1006,24 @@
             });
         }
 
+        function initPaymentMethods() {
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // Hide all payment method details
+                    document.querySelectorAll('.payment-method-details').forEach(detail => {
+                        detail.style.display = 'none';
+                    });
+                    
+                    // Show selected payment method
+                    const methodType = this.getAttribute('data-method');
+                    document.getElementById(methodType + 'Payment').style.display = 'block';
+                });
+            });
+
             // Initialize category tabs
             function initCategoryTabs() {
                 document.querySelectorAll('#categoryTabs .nav-link').forEach(tab => {
