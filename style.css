@@ -1,3 +1,4 @@
+
 :root {
     --primary-color: #4a6bff;
     --primary-hover: #3a56e8;
@@ -537,4 +538,152 @@ body {
 
 .confirmation-modal .btn-confirm:hover {
     background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    .profile-header {
+        padding: 20px;
+    }
+    
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .payment-container {
+        padding: 20px;
+    }
+    
+    .otp-input {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .profile-picture-container {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-container .row > div {
+        margin-bottom: 10px;
+    }
+    
+    .category-tabs {
+        justify-content: center;
+    }
+    
+    .professional-img {
+        height: 150px;
+    }
+    
+    #searchResults {
+        width: calc(100% - 20px);
+    }
+
+    .booking-professional-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Search Container Enhancements */
+.profession-filter-dropdown .dropdown-toggle {
+    text-align: left;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    background-color: white;
+    color: #495057;
+}
+
+.profession-filter-dropdown .dropdown-toggle::after {
+    float: right;
+    margin-top: 8px;
+}
+
+.profession-filter-dropdown .dropdown-menu {
+    padding: 10px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.profession-filter-dropdown .dropdown-item {
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin: 2px 10px;
+}
+
+.profession-filter-dropdown .dropdown-item:hover, 
+.profession-filter-dropdown .dropdown-item:focus {
+    background-color: rgba(74, 107, 255, 0.1);
+    color: var(--primary-color);
+}
+
+#mapPreview {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Professional Results */
+#professionalResults .professional-card {
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+#professionalResults .professional-card.hidden {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-container .col-md-5 {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+    }
+    
+    .category-tabs .nav-item {
+        white-space: nowrap;
+    }
+}
+
+#emergencyModal .modal-header {
+    background-color: #ffc107;
+    color: #000;
+}
+#emergencyModal .list-group-item {
+    transition: all 0.3s;
+}
+#emergencyModal .list-group-item:hover {
+    background-color: #fff9e6;
+}
+#emergencyModal .emergency-professional {
+    border-left: 4px solid #ffc107;
+    margin-bottom: 10px;
+}
+#emergencyModal .book-emergency {
+    white-space: nowrap;
+}
+
+#emergencyModal .modal-title {
+    font-weight: 700;
+}
+#emergencyModal .badge {
+    font-size: 0.8rem;
+}
+#emergencyModal img {
+    object-fit: cover;
 }
