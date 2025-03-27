@@ -178,7 +178,7 @@
             <!-- Professionals Grid -->
             <h4 class="mb-4" data-i18n="available_professionals">Available Professionals</h4>
             <div class="row" id="professionalsGrid">
-                <!-- Professional cards will be dynamically loaded here -->
+              
             </div>
 
             <!-- Why Choose Us Section -->
@@ -387,7 +387,7 @@
                                             <div>
                                                 <h3 id="userName">Rahul Sharma</h3>
                                                 <p class="text-muted mb-2" id="userEmail">rahul.sharma@gmail.com</p>
-                                                <p class="text-muted mb-2" id="userPhone">+91 98765 43210</p>
+                                                <p class="text-muted mb-2" id="userPhone">+91 9078122871</p>
                                             </div>
                                             <button class="btn btn-outline-primary" id="editProfileBtn" data-i18n="edit_profile">Edit Profile</button>
                                         </div>
@@ -1142,7 +1142,7 @@
                 <div class="col-md-3">
                     <h5 class="fw-bold" data-i18n="contact">Contact</h5>
                     <p class="mb-1" data-i18n="email">Email: <a href="mailto:support@profind.com">support@profind.com</a></p>
-                    <p data-i18n="phone">Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p data-i18n="phone">Phone: <a href="tel:+919078122871">+91 9078122871</a></p>
                 </div>
             </div>
             <div class="text-center mt-4">
@@ -1393,7 +1393,7 @@
                 image: 'https://t4.ftcdn.net/jpg/09/33/86/75/240_F_933867551_7AoH45VGS1zkB1wCtIROSNBHRXEDpPWM.jpg'
             },
 
-            // Emergency Electrician (available 24/7)
+            
     {
         id: 'emergency-electrician-1',
         name: 'Ravi Verma',
@@ -1413,7 +1413,7 @@
         image: 'https://t3.ftcdn.net/jpg/11/05/18/16/240_F_1105181622_8gcDxDCyM9JbS9kkgMWMdgVRei8mBgLf.jpg'
     },
     
-    // Emergency Plumber (available 24/7)
+   
     {
         id: 'emergency-plumber-1',
         name: 'Sanjay Gupta',
@@ -1433,7 +1433,7 @@
         image: 'https://t3.ftcdn.net/jpg/02/25/35/00/240_F_225350080_kqP0GdKJID8ssa4BljPOIltWW3KAJC2u.jpg'
     },
     
-    // Emergency Tailor
+
     {
         id: 'tailor-1',
         name: 'Priya Malhotra',
@@ -1464,7 +1464,6 @@
 
         ];
 
-        // Booking data
         const bookings = [
             {
                 id: 'PRO123456',
@@ -1518,12 +1517,11 @@
             }
         ];
 
-        // User data
         const user = {
             firstName: 'Rahul',
             lastName: 'Sharma',
             email: 'rahul.sharma@gmail.com',
-            phone: '+91 98765 43210',
+            phone: '+91 9078122871',
             gender: 'male',
             dob: '1985-06-15',
             address: '123, Green Park Apartments, Sector 42, Gurugram, Haryana - 122002',
@@ -1532,7 +1530,7 @@
             profilePic: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600'
         };
 
-        // Language translations
+   
         const translations = {
             en: {
                 home: "Home",
@@ -1944,13 +1942,13 @@
             }
         };
 
-        // Set default language
+
         let currentLanguage = 'en';
         let selectedProfession = 'all';
         let selectedCategory = 'all';
         let isLoggedIn = false;
         
-        // Function to change language
+
         function changeLanguage(lang) {
             currentLanguage = lang;
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -1959,7 +1957,7 @@
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = translations[lang][key];
                     } else {
-                        // Handle text with placeholders
+
                         let text = translations[lang][key];
                         if (text.includes('{0}') || text.includes('{1}')) {
                             const placeholders = Array.from(element.children).map(child => child.textContent);
@@ -1971,35 +1969,35 @@
                 }
             });
             
-            // Update dropdown text
+
             const dropdownToggle = document.querySelector('#languageDropdown');
             if (dropdownToggle) {
                 dropdownToggle.innerHTML = `<img src="https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang === 'hi' ? 'in' : 'bd'}.png" class="language-flag" alt="${lang}"> ${translations[lang].language}`;
             }
             
-            // Store language preference
+
             localStorage.setItem('language', lang);
             
-            // Update professional cards
+
             loadProfessionals();
         }
         
-        // Function to show a specific page section
+
         function showPageSection(sectionId) {
-            // Hide all page sections
+
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Show the requested section
+
             document.getElementById(sectionId).classList.add('active');
             
-            // Update active nav link
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
             
-            // Add active class to the clicked nav link
+
             if (sectionId === 'home-section') {
                 document.querySelector('.home-link').classList.add('active');
             } else if (sectionId === 'about-section') {
@@ -2011,7 +2009,7 @@
             }
         }
         
-        // Initialize language from localStorage or browser preference
+
         function initLanguage() {
             const savedLanguage = localStorage.getItem('language');
             const browserLanguage = navigator.language.substring(0, 2);
@@ -2025,13 +2023,13 @@
             }
         }
         
-        // Set min date for booking to today
+
         function initBookingDate() {
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('bookingDate').min = today;
         }
         
-        // Payment method functionality
+
         function initPaymentMethods() {
             const paymentMethods = document.querySelectorAll('.payment-method');
             paymentMethods.forEach(method => {
@@ -2039,21 +2037,21 @@
                     paymentMethods.forEach(m => m.classList.remove('selected'));
                     this.classList.add('selected');
                     
-                    // Hide all payment method details
+      
                     document.querySelectorAll('.payment-method-details').forEach(detail => {
                         detail.style.display = 'none';
                     });
                     
-                    // Show selected payment method
+
                     const methodType = this.getAttribute('data-method');
                     document.getElementById(methodType + 'Payment').style.display = 'block';
                 });
             });
             
-            // Update total amount when service type changes
+       
             document.getElementById('serviceType').addEventListener('change', function() {
                 const service = this.value;
-                let amount = 500; // default
+                let amount = 500; 
                 
                 if (service === translations[currentLanguage]['pipe_repair']) amount = "₹800-₹2000";
                 else if (service === translations[currentLanguage]['bathroom_install']) amount = "₹5000+";
@@ -2063,24 +2061,23 @@
                 document.getElementById('totalAmount').textContent = amount;
             });
             
-            // Proceed to payment button
+        
             document.getElementById('proceedToPaymentBtn').addEventListener('click', function() {
                 document.getElementById('bookingForm').style.display = 'none';
                 document.getElementById('paymentForm').style.display = 'block';
             });
             
-            // Pay now button
+         
             document.getElementById('payNowBtn').addEventListener('click', function() {
                 document.getElementById('paymentForm').style.display = 'none';
                 document.getElementById('otpVerification').style.display = 'block';
             });
-            
-            // Verify OTP button
+
             document.getElementById('verifyOtpBtn').addEventListener('click', function() {
                 document.getElementById('otpVerification').style.display = 'none';
                 document.getElementById('paymentSuccess').style.display = 'block';
                 
-                // Add to bookings
+
                 const bookingId = 'PRO' + Math.floor(100000 + Math.random() * 900000);
                 const professionalName = document.getElementById('bookingProfName').textContent;
                 const serviceType = document.getElementById('serviceType').value;
@@ -2089,7 +2086,7 @@
                 const address = document.getElementById('address').value;
                 const amount = document.getElementById('totalAmount').textContent;
                 
-                // Format date
+
                 const formattedDate = new Date(bookingDate).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
@@ -2109,11 +2106,11 @@
                 
                 bookings.unshift(newBooking);
                 
-                // Update bookings tab
+ 
                 loadBookings();
             });
             
-            // Auto focus next OTP input
+
             const otpInputs = document.querySelectorAll('.otp-input');
             otpInputs.forEach((input, index) => {
                 input.addEventListener('input', function() {
@@ -2130,7 +2127,7 @@
             });
         }
         
-        // Profile modal data setup
+
         function initProfileModal() {
             const profileModal = document.getElementById('profileModal');
             if (profileModal) {
@@ -2138,11 +2135,11 @@
                     const button = event.relatedTarget;
                     const professionalId = button.getAttribute('data-professional');
                     
-                    // Find the professional in our data
+
                     const professional = professionals.find(prof => prof.id === professionalId);
                     
                     if (professional) {
-                        // Update modal with professional data
+
                         document.getElementById('modalProfImg').src = professional.image;
                         document.getElementById('modalProfName').textContent = professional.name;
                         document.getElementById('modalProfTitle').textContent = translations[currentLanguage][professional.title] || professional.title;
@@ -2150,11 +2147,11 @@
                         document.getElementById('modalProfExp').textContent = `${professional.experience} ${translations[currentLanguage]['years']}`;
                         document.getElementById('modalProfLocation').textContent = professional.location;
                         
-                        // Set about text - use translation if available
+
                         const aboutText = translations[currentLanguage][professional.about] || professional.about;
                         document.getElementById('modalProfAbout').textContent = aboutText;
                         
-                        // Update services list
+ 
                         const servicesList = document.getElementById('modalProfServices');
                         servicesList.innerHTML = '';
                         professional.services.forEach(service => {
@@ -2163,7 +2160,7 @@
                             servicesList.appendChild(li);
                         });
                         
-                        // Update pricing table
+
                         const pricingTable = document.getElementById('modalProfPricing');
                         pricingTable.innerHTML = '';
                         professional.pricing.forEach(item => {
@@ -2177,7 +2174,7 @@
                             pricingTable.appendChild(tr);
                         });
                         
-                        // Update booking info
+
                         document.getElementById('bookingProfName').textContent = professional.name;
                         document.getElementById('successProfName').textContent = professional.name;
                         document.getElementById('bookingService').textContent = translations[currentLanguage][`${professional.profession}_service`] || `${professional.profession} Service`;
@@ -2185,7 +2182,7 @@
                 });
             }
             
-            // Reset payment modal when closed
+
             const paymentModal = document.getElementById('paymentModal');
             if (paymentModal) {
                 paymentModal.addEventListener('hidden.bs.modal', function() {
@@ -2194,7 +2191,7 @@
                     document.getElementById('otpVerification').style.display = 'none';
                     document.getElementById('paymentSuccess').style.display = 'none';
                     
-                    // Reset form
+
                     document.getElementById('serviceType').value = translations[currentLanguage]['select_service'];
                     document.getElementById('bookingDate').value = '';
                     document.getElementById('bookingTime').value = translations[currentLanguage]['select_time'];
@@ -2202,7 +2199,7 @@
                     document.getElementById('specialInstructions').value = '';
                     document.getElementById('totalAmount').textContent = '₹500';
                     
-                    // Reset payment method
+
                     const paymentMethods = document.querySelectorAll('.payment-method');
                     paymentMethods.forEach(m => m.classList.remove('selected'));
                     paymentMethods[0].classList.add('selected');
@@ -2211,7 +2208,7 @@
                     });
                     document.getElementById('upiPayment').style.display = 'block';
                     
-                    // Reset OTP inputs
+
                     document.querySelectorAll('.otp-input').forEach(input => {
                         input.value = '';
                     });
@@ -2219,7 +2216,7 @@
             }
         }
         
-        // Add click event to language selectors
+
         function initLanguageSelectors() {
             document.querySelectorAll('.language-select').forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -2230,7 +2227,7 @@
             });
         }
         
-        // Add click events to navigation links
+
 function initNavigation() {
     document.querySelector('.home-link').addEventListener('click', function(e) {
         e.preventDefault();
@@ -2252,11 +2249,11 @@ function initNavigation() {
     showPageSection('profile-section');
 });
     
-    // Remove login check for bookings and history links in profile dropdown
+
     document.querySelector('.bookings-link').addEventListener('click', function(e) {
         e.preventDefault();
         showPageSection('profile-section');
-        // Activate bookings tab
+
         const bookingsTab = document.querySelector('a[href="#bookings"]');
         if (bookingsTab) {
             new bootstrap.Tab(bookingsTab).show();
@@ -2266,7 +2263,7 @@ function initNavigation() {
     document.querySelector('.history-link').addEventListener('click', function(e) {
         e.preventDefault();
         showPageSection('profile-section');
-        // Activate history tab
+
         const historyTab = document.querySelector('a[href="#history"]');
         if (historyTab) {
             new bootstrap.Tab(historyTab).show();
@@ -2278,7 +2275,7 @@ function initNavigation() {
         logout();
     });
     
-    // Also add events to footer links
+
     document.querySelector('footer .about-link').addEventListener('click', function(e) {
         e.preventDefault();
         showPageSection('about-section');
@@ -2290,33 +2287,32 @@ function initNavigation() {
     });
 }
         
-        // Initialize search functionality
+
         function initSearch() {
-            // Show search results when typing in location field
+
             document.getElementById('location').addEventListener('input', function() {
                 const searchResults = document.getElementById('searchResults');
                 if (this.value.length > 2) {
                     searchResults.style.display = 'block';
                     
-                    // In a real app, you would fetch results from an API here
-                    // For demo, we're using static results
+  
                 } else {
                     searchResults.style.display = 'none';
                 }
             });
             
-            // Hide search results when clicking elsewhere
+          
             document.addEventListener('click', function(e) {
                 if (e.target.id !== 'location') {
                     document.getElementById('searchResults').style.display = 'none';
                 }
             });
             
-            // Current location button
+    
             document.getElementById('currentLocationBtn').addEventListener('click', function() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {
-                        // In a real app, you would reverse geocode the coordinates
+                    
                         document.getElementById('location').value = "Nearby professionals";
                         document.getElementById('searchResults').style.display = 'block';
                     });
@@ -2325,84 +2321,84 @@ function initNavigation() {
                 }
             });
             
-            // Search button
+ 
             document.getElementById('searchBtn').addEventListener('click', function() {
                 loadProfessionals();
             });
         }
         
-        // Initialize professional dropdown
+      
         function initProfessionalDropdown() {
             const dropdownToggle = document.getElementById('professionDropdown');
             const dropdownMenu = document.getElementById('professionDropdownMenu');
             
-            // Toggle dropdown menu
+ 
             dropdownToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 dropdownMenu.classList.toggle('show');
             });
             
-            // Close dropdown when clicking outside
+
             document.addEventListener('click', function(e) {
                 if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
                     dropdownMenu.classList.remove('show');
                 }
             });
             
-            // Handle dropdown item selection
+
             document.querySelectorAll('.professional-dropdown-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Update selected profession
+
                     selectedProfession = this.getAttribute('data-value');
                     
-                    // Update dropdown toggle text
+
                     const dropdownText = this.textContent;
                     dropdownToggle.querySelector('span').textContent = dropdownText;
                     
-                    // Update active item in dropdown
+
                     document.querySelectorAll('.professional-dropdown-item').forEach(i => {
                         i.classList.remove('active');
                     });
                     this.classList.add('active');
                     
-                    // Close dropdown
+
                     dropdownMenu.classList.remove('show');
                     
-                    // Load professionals based on selection
+
                     loadProfessionals();
                 });
             });
         }
         
-        // Initialize category tabs
+
         function initCategoryTabs() {
             document.querySelectorAll('#categoryTabs .nav-link').forEach(tab => {
                 tab.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Update selected category
+  
                     selectedCategory = this.getAttribute('data-category');
                     
-                    // Update active tab
+      
                     document.querySelectorAll('#categoryTabs .nav-link').forEach(t => {
                         t.classList.remove('active');
                     });
                     this.classList.add('active');
                     
-                    // Load professionals based on selection
+           
                     loadProfessionals();
                 });
             });
         }
         
-        // Load professionals based on filters
+       
         function loadProfessionals() {
             const professionalsGrid = document.getElementById('professionalsGrid');
             professionalsGrid.innerHTML = '';
             
-            // Filter professionals based on selected profession and category
+           
             let filteredProfessionals = professionals;
             
             if (selectedProfession !== 'all') {
@@ -2413,7 +2409,7 @@ function initNavigation() {
                 filteredProfessionals = filteredProfessionals.filter(prof => prof.profession === selectedCategory);
             }
             
-            // If no professionals found, show message
+            
             if (filteredProfessionals.length === 0) {
                 professionalsGrid.innerHTML = `
                     <div class="col-12 text-center py-5">
@@ -2424,23 +2420,22 @@ function initNavigation() {
                 return;
             }
             
-            // Display filtered professionals
+            
             filteredProfessionals.forEach(professional => {
                 const ratingStars = [];
                 const fullStars = Math.floor(professional.rating);
                 const hasHalfStar = professional.rating % 1 >= 0.5;
                 
-                // Add full stars
+            
                 for (let i = 0; i < fullStars; i++) {
                     ratingStars.push('<i class="fas fa-star"></i>');
                 }
                 
-                // Add half star if needed
+                
                 if (hasHalfStar) {
                     ratingStars.push('<i class="fas fa-star-half-alt"></i>');
                 }
                 
-                // Add empty stars
                 const emptyStars = 5 - ratingStars.length;
                 for (let i = 0; i < emptyStars; i++) {
                     ratingStars.push('<i class="far fa-star"></i>');
@@ -2471,11 +2466,10 @@ function initNavigation() {
                 professionalsGrid.innerHTML += professionalCard;
             });
             
-            // Reinitialize profile modal for new cards
             initProfileModal();
         }
         
-        // Load user profile data
+        
         function loadUserProfile() {
             document.getElementById('userName').textContent = `${user.firstName} ${user.lastName}`;
             document.getElementById('userEmail').textContent = user.email;
@@ -2483,7 +2477,7 @@ function initNavigation() {
             document.getElementById('userFullName').textContent = `${user.firstName} ${user.lastName}`;
             document.getElementById('userGender').textContent = translations[currentLanguage][user.gender] || user.gender;
             
-            // Format date of birth
+            
             const dob = new Date(user.dob);
             const formattedDob = dob.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -2496,14 +2490,11 @@ function initNavigation() {
             document.getElementById('userCity').textContent = user.city;
             document.getElementById('userPincode').textContent = user.pincode;
             
-            // Set profile picture
             document.querySelector('.profile-img').src = user.profilePic;
-            
-            // Set form values
             document.getElementById('editFirstName').value = user.firstName;
             document.getElementById('editLastName').value = user.lastName;
             document.getElementById('editEmail').value = user.email;
-            document.getElementById('editPhone').value = user.phone.substring(4); // Remove +91
+            document.getElementById('editPhone').value = user.phone.substring(4); 
             document.getElementById('editGender').value = user.gender;
             document.getElementById('editDob').value = user.dob;
             document.getElementById('editAddress').value = user.address.split(',')[0].trim();
@@ -2511,18 +2502,18 @@ function initNavigation() {
             document.getElementById('editPincode').value = user.pincode;
         }
         
-        // Load bookings
+        
         function loadBookings() {
             const bookingsContainer = document.querySelector('#bookings .booking-card');
             if (!bookingsContainer) return;
             
-            // Clear existing bookings (except the first one which is a template)
+            
             const existingBookings = document.querySelectorAll('#bookings .booking-card');
             for (let i = 1; i < existingBookings.length; i++) {
                 existingBookings[i].remove();
             }
             
-            // Add bookings
+            
             bookings.forEach(booking => {
                 const bookingCard = document.createElement('div');
                 bookingCard.className = 'booking-card';
@@ -2581,7 +2572,7 @@ function initNavigation() {
                 document.querySelector('#bookings').appendChild(bookingCard);
             });
             
-            // Add event listeners to cancel buttons
+            
             document.querySelectorAll('.cancel-booking').forEach(button => {
                 button.addEventListener('click', function() {
                     const bookingId = this.getAttribute('data-booking-id');
@@ -2589,7 +2580,7 @@ function initNavigation() {
                 });
             });
             
-            // Add event listeners to call buttons
+            
             document.querySelectorAll('.call-professional').forEach(button => {
                 button.addEventListener('click', function() {
                     alert('Calling professional...');
@@ -2597,18 +2588,18 @@ function initNavigation() {
             });
         }
         
-        // Load booking history
+        
         function loadHistory() {
             const historyContainer = document.querySelector('#history .booking-card');
             if (!historyContainer) return;
             
-            // Clear existing history (except the first one which is a template)
+            
             const existingHistory = document.querySelectorAll('#history .booking-card');
             for (let i = 1; i < existingHistory.length; i++) {
                 existingHistory[i].remove();
             }
             
-            // Add history items
+            
             history.forEach(item => {
                 const historyCard = document.createElement('div');
                 historyCard.className = 'booking-card';
@@ -2643,7 +2634,7 @@ function initNavigation() {
                 document.querySelector('#history').appendChild(historyCard);
             });
             
-            // Add event listeners to view details buttons
+            
             document.querySelectorAll('.view-details').forEach(button => {
                 button.addEventListener('click', function() {
                     alert('Showing booking details...');
@@ -2651,14 +2642,14 @@ function initNavigation() {
             });
         }
         
-        // Cancel booking
+        
         function cancelBooking(bookingId) {
             if (confirm('Are you sure you want to cancel this booking?')) {
-                // Find booking index
+                
                 const bookingIndex = bookings.findIndex(b => b.id === bookingId);
                 
                 if (bookingIndex !== -1) {
-                    // Move to history
+                    
                     const cancelledBooking = bookings[bookingIndex];
                     cancelledBooking.status = 'cancelled';
                     cancelledBooking.date = new Date().toLocaleDateString('en-US', {
@@ -2669,10 +2660,10 @@ function initNavigation() {
                     
                     history.unshift(cancelledBooking);
                     
-                    // Remove from bookings
+                    
                     bookings.splice(bookingIndex, 1);
                     
-                    // Reload both tabs
+                    
                     loadBookings();
                     loadHistory();
                     
@@ -2681,9 +2672,9 @@ function initNavigation() {
             }
         }
         
-        // Initialize profile functionality
+        
         function initProfile() {
-            // Edit profile button
+            
             document.getElementById('editProfileBtn').addEventListener('click', function() {
                 document.getElementById('editProfileForm').style.display = 'block';
                 window.scrollTo({
@@ -2692,16 +2683,14 @@ function initNavigation() {
                 });
             });
             
-            // Cancel edit button
+            
             document.getElementById('cancelEditBtn').addEventListener('click', function() {
                 document.getElementById('editProfileForm').style.display = 'none';
             });
             
-            // Profile form submission
             document.getElementById('profileForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Update user data
                 user.firstName = document.getElementById('editFirstName').value;
                 user.lastName = document.getElementById('editLastName').value;
                 user.email = document.getElementById('editEmail').value;
@@ -2714,16 +2703,14 @@ function initNavigation() {
                 user.city = document.getElementById('editCity').value;
                 user.pincode = document.getElementById('editPincode').value;
                 
-                // Update profile display
                 loadUserProfile();
                 
-                // Hide form
                 document.getElementById('editProfileForm').style.display = 'none';
                 
                 alert('Profile updated successfully!');
             });
             
-            // Edit profile picture button
+            
             document.getElementById('editProfilePicBtn').addEventListener('click', function() {
                 const newPic = prompt('Enter new profile picture URL:');
                 if (newPic) {
@@ -2732,21 +2719,20 @@ function initNavigation() {
                 }
             });
             
-            // Initialize profile tabs
+            
             const profileTabEls = document.querySelectorAll('#profile-section .nav-tabs .nav-link');
             profileTabEls.forEach(tabEl => {
                 tabEl.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all tabs
+                    
                     profileTabEls.forEach(el => {
                         el.classList.remove('active');
                     });
                     
-                    // Add active class to clicked tab
+                    
                     this.classList.add('active');
                     
-                    // Show corresponding tab content
                     const target = this.getAttribute('href');
                     document.querySelectorAll('#profile-section .tab-pane').forEach(pane => {
                         pane.classList.remove('show', 'active');
@@ -2756,13 +2742,13 @@ function initNavigation() {
             });
         }
 
-        // Initialize emergency service functionality
+        
         function initEmergencyService() {
     document.getElementById('emergencyBtn').addEventListener('click', function() {
         try {
-            // Case-insensitive search for emergency services
+            
             const emergencyProfessionals = professionals.filter(prof => {
-                // Check if prof.services exists and is an array
+                
                 if (!prof.services || !Array.isArray(prof.services)) {
                     console.warn(`Professional ${prof.id} has invalid services data`);
                     return false;
@@ -2833,7 +2819,7 @@ function initNavigation() {
                 emergencyList.appendChild(li);
             });
             
-            // Handle booking clicks
+            
             document.querySelectorAll('.book-emergency').forEach(button => {
                 button.addEventListener('click', function() {
                     const professionalId = this.getAttribute('data-professional');
@@ -2844,7 +2830,7 @@ function initNavigation() {
                         return;
                     }
                     
-                    // Set booking details
+                    
                     document.getElementById('bookingProfName').textContent = professional.name;
                     document.getElementById('bookingService').textContent = 
                         translations[currentLanguage]['emergency_service'] || 'Emergency Service';
@@ -2852,14 +2838,14 @@ function initNavigation() {
                     document.getElementById('totalAmount').textContent = 
                         this.getAttribute('data-price') || '₹2000';
                     
-                    // Set to current time
+                    
                     const now = new Date();
                     document.getElementById('bookingDate').valueAsDate = now;
                     const hours = now.getHours().toString().padStart(2, '0');
                     const minutes = now.getMinutes().toString().padStart(2, '0');
                     document.getElementById('bookingTime').value = `${hours}:${minutes}`;
                     
-                    // Switch modals
+                    
                     bootstrap.Modal.getInstance(document.getElementById('emergencyModal')).hide();
                     new bootstrap.Modal(document.getElementById('paymentModal')).show();
                 });
@@ -2874,16 +2860,16 @@ function initNavigation() {
     });
 }
         
-        // Initialize login functionality
+        
         function initLogin() {
-            // Login form submission
+            
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 const email = document.getElementById('loginEmail').value;
                 const password = document.getElementById('loginPassword').value;
                 
-                // Simple validation
+                
                 if (email && password) {
                     login();
                 } else {
@@ -2891,61 +2877,51 @@ function initNavigation() {
                 }
             });
             
-            // Show register form
+            
             document.getElementById('showRegister').addEventListener('click', function(e) {
                 e.preventDefault();
                 alert('Registration form would appear here');
             });
             
-            // Forgot password
+
             document.getElementById('forgotPassword').addEventListener('click', function(e) {
                 e.preventDefault();
                 alert('Password reset form would appear here');
             });
         }
         
-        // Updated login function
+
     function login() {
     isLoggedIn = true;
     
-    // Close login modal
     document.getElementById('loginModal').querySelector('.btn-close').click();
     
-    // Show login success message in current language
     alert(translations[currentLanguage]['login_success'] || "Login successful!");
     
-    // Redirect to home page instead of profile section
     showPageSection('home-section');
     
-    // Still load profile data in background
     loadUserProfile();
     loadBookings();
     loadHistory();
 }
         
 function logout() {
-    // Show confirmation dialog in current language
     const confirmMessage = translations[currentLanguage]?.logout_confirmation || "Are you sure you want to logout?";
     const userConfirmed = confirm(confirmMessage);
     
     if (userConfirmed) {
         isLoggedIn = false;
         
-        // Show logout success message in current language
         const successMessage = translations[currentLanguage]?.logout_success || "You have been logged out successfully.";
         alert(successMessage);
         
-        // Redirect to home page
         showPageSection('home-section');
         
-        // Show login modal
         const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
         loginModal.show();
     }
-    // If user clicks "No", nothing happens
 }
         
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             initLanguage();
             initBookingDate();
@@ -2960,18 +2936,16 @@ function logout() {
             initEmergencyService();
             initLogin();
             
-            // Show home section by default
             showPageSection('home-section');
             
-            // Load initial professionals
             loadProfessionals();
             
-            // Check if user is logged in
             if (isLoggedIn) {
                 loadUserProfile();
                 loadBookings();
                 loadHistory();
             }
         });
+    </script>
 </body>
 </html>
