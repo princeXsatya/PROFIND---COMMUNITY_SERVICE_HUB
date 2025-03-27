@@ -916,6 +916,95 @@
                 }
             };
 
+            
+        // Set default language
+        let currentLanguage = 'en';
+        let selectedProfession = 'all';
+        let selectedCategory = 'all';
+        
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        // Handle text with placeholders
+                        let text = translations[lang][key];
+                        if (text.includes('{0}') || text.includes('{1}')) {
+                            const placeholders = Array.from(element.children).map(child => child.textContent);
+                            text = text.replace('{0}', placeholders[0] || '')
+                                       .replace('{1}', placeholders[1] || '');
+                        }
+                        element.textContent = text;
+                    }
+                }
+            });
+            
+            // Update dropdown text
+            const dropdownToggle = document.querySelector('#languageDropdown');
+            if (dropdownToggle) {
+                dropdownToggle.innerHTML = `<img src="https://flagcdn.com/w20/${lang === 'en' ? 'gb' : lang === 'hi' ? 'in' : 'bd'}.png" class="language-flag" alt="${lang}"> ${translations[lang].language}`;
+            }
+            
+            // Store language preference
+            localStorage.setItem('language', lang);
+            
+            // Update professional cards
+            loadProfessionals();
+        }
+        
+        // Function to show a specific page section
+        function showPageSection(sectionId) {
+            // Hide all page sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the requested section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to the clicked nav link
+            if (sectionId === 'home-section') {
+                document.querySelector('.home-link').classList.add('active');
+            } else if (sectionId === 'about-section') {
+                document.querySelector('.about-link').classList.add('active');
+            } else if (sectionId === 'contact-section') {
+                document.querySelector('.contact-link').classList.add('active');
+            }
+        }
+        
+        // Initialize language from localStorage or browser preference
+        function initLanguage() {
+            const savedLanguage = localStorage.getItem('language');
+            const browserLanguage = navigator.language.substring(0, 2);
+            
+            if (savedLanguage) {
+                changeLanguage(savedLanguage);
+            } else if (translations[browserLanguage]) {
+                changeLanguage(browserLanguage);
+            } else {
+                changeLanguage('en');
+            }
+        }
+
+            // Add click event to language selectors
+        function initLanguageSelectors() {
+            document.querySelectorAll('.language-select').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+        }
 
             // Initialize category tabs
             function initCategoryTabs() {
